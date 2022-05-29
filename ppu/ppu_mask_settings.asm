@@ -37,7 +37,7 @@ ppuMaskSetLeftShowBgOn = %00000010
 ppuMaskSetColor = %00000000
 ppuMaskSetMono = %00000001
 
-; PPUコントロールレジスタ2を設定する
+; 画面表示の設定する
 ; @param 1 青を強調表示
 ; @param 2 緑を強調表示
 ; @param 3 赤を強調表示

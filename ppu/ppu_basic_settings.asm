@@ -35,7 +35,7 @@ ppuBasicSetMainScreen1 = %00000001
 ppuBasicSetMainScreen2 = %00000010
 ppuBasicSetMainScreen3 = %00000011
 
-; PPUコントロールレジスタ1を設定する
+; PPUの基本設定
 ; @param 1 vBlank発生を割り込みで検出
 ; @param 2 PPU type
 ; @param 3 スプライトのサイズ
