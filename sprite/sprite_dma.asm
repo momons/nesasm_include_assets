@@ -3,6 +3,7 @@
 ; ------------------------
 
 ; メモリマップ
+memMapOamAddr = $2003 ; OAMアクセス先指定
 memMapDma = $4014 ; DMA転送
 pageSpDmaData = 3 ; スプライトデータの格納先を$0300を使用する
 
@@ -356,6 +357,8 @@ setSpSts .MACRO
 
 ; DMA転送し全てのスプライトを一度に反映する
 drawSpAll .MACRO
+    lda #0
+    sta memMapOamAddr
     lda #pageSpDmaData
     sta memMapDma
     .ENDM
