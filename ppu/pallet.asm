@@ -3,7 +3,8 @@
 ; ------------------------
 
 ; メモリマップ
-memMapPalletAdd = $2006 ; パレットをロードするアドレスを指定
+memMapPpuAdd = $2006 ; アクセスするPPUアドレスを指定
+memMapPpuData = $2007 ; PPUからデータをアクセスする
 memMapPalletBg = $3f00; ; BGパレットテーブルアドレス
 memMapPalletSp = $3f10; ; スプライトパレットテーブルアドレス
 
@@ -12,14 +13,14 @@ memMapPalletSp = $3f10; ; スプライトパレットテーブルアドレス
 ; @param 2 パレットデータアドレス(必ず16個)
 loadPallet .MACRO
     lda #(\1 / $100)
-    sta $2006
+    sta memMapPpuAdd
     lda #(\1 % $100)
-    sta $2006
+    sta memMapPpuAdd
     ldx #0
     ldy #16
 .COPY_PALLET\@:
     lda \2, x
-    sta $2007
+    sta memMapPpuData
     inx
     dey
     bne .COPY_PALLET\@
