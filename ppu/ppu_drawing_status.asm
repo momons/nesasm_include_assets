@@ -2,9 +2,6 @@
 ; 画面描画の状態取得 を行う読み取り（入力）専用のI/Oポート
 ; ------------------------
 
-; メモリマップ
-memMapPpuDrawSts = $2002
-
 ; vBlankの発生状態 (0: 描画中, 1: vBlank中)
 ppuDrawStsDrawing = %00000000
 ppuDrawStsVblank = %00000100

@@ -2,12 +2,6 @@
 ; カラーパレットの設定
 ; ------------------------
 
-; メモリマップ
-memMapPpuAdd = $2006 ; アクセスするPPUアドレスを指定
-memMapPpuData = $2007 ; PPUからデータをアクセスする
-memMapPalletBg = $3f00; ; BGパレットテーブルアドレス
-memMapPalletSp = $3f10; ; スプライトパレットテーブルアドレス
-
 ; 指定アドレスのパレットをロードする
 ; @param 1 memMapPalletBg or memMapPalletSp
 ; @param 2 パレットデータアドレス(必ず16個)

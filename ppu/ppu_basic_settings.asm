@@ -2,9 +2,6 @@
 ; PPUの基本設定 を行う書き込み（出力）専用のI/Oポート
 ; ------------------------
 
-; メモリマップ
-memMapPpuBasicSet = $2000
-
 ; vBlank発生を割り込みで検出 (0: off, 1: on)
 ppuBasicSetVbankOff = %00000000
 ppuBasicSetVbankOn = %10000000
