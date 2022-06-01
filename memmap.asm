@@ -1,8 +1,37 @@
 ; ------------------------
-; メモリマップ
+; メモリマップ、bankの定義
 ; 各ファイルでも使用しているので
 ; 必ず最初にincludeしなければいけない
 ; ------------------------
+
+; プログラム領域
+bankProgram = 0
+; 割り込み領域
+bankInterrupt = 1
+; VRAM領域
+bankVram = 2
+
+; パターンテーブル0 (ROMから読み込まれる)
+memMapPatternTable0 = $0000
+; パターンテーブル1 (ROMから読み込まれる)
+memMapPatternTable1 = $1000
+
+; 画面0のネームテーブル
+memMapBgNameTable0 = $2000
+; 画面0の属性テーブル
+memMapBgAttrTable0 = $23C0
+; 画面1のネームテーブル
+memMapBgNameTable1 = $2400
+; 画面1の属性テーブル
+memMapBgAttrTable1 = $27C0
+; 画面2のネームテーブル
+memMapBgNameTable2 = $2800
+; 画面2の属性テーブル
+memMapBgAttrTable2 = $2BC0
+; 画面3のネームテーブル
+memMapBgNameTable3 = $2C00
+; 画面3の属性テーブル
+memMapBgAttrTable3 = $2FC0
 
 ; PPUの基本設定
 memMapPpuBasicSet = $2000
@@ -35,3 +64,15 @@ memMapKeypadP1 = $4016
 ; コントローラ P2
 memMapKeypadP2 = $4017
 
+; 拡張メモリ (Mapper0では使用不可)
+memMapExRam = $4020
+; バッテリーバックアップRAM (Mapper0では使用不可)
+memMapBackupRam = $6000
+
+; プログラムROM LOW (ROMから読み込まれる)
+memMapProgramRomLow = $8000
+; プログラムROM HIGH (ROMから読み込まれる)
+memMapProgramRomHigh = $c000
+
+; 割り込みプログラム領域 (ROMから読み込まれる)
+memMapInterrupt = $fffa
