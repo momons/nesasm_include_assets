@@ -56,21 +56,21 @@ memMapPalletBg = $3f00
 ; スプライトパレットテーブルアドレス
 memMapPalletSp = $3f10
 
-; 矩形波CH1制御レジスタ1
+; 矩形波CH1制御レジスタ1(音の減衰を設定)
 memMapSqWvCh1Ctl1 = $4000
-; 矩形波CH1制御レジスタ2
+; 矩形波CH1制御レジスタ2(音の変化を設定)
 memMapSqWvCh1Ctl2 = $4001
-; 矩形波CH1周波数値レジスタ1
+; 矩形波CH1周波数値レジスタ1(周波数下位8ビット)
 memMapSqWvCh1Val1 = $4002
-; 矩形波CH1周波数値レジスタ2
+; 矩形波CH1周波数値レジスタ2(再生時間・周波数上位3ビット)
 memMapSqWvCh1Val2 = $4003
-; 矩形波CH2制御レジスタ1
+; 矩形波CH2制御レジスタ1(音の減衰を設定)
 memMapSqWvCh2Ctl1 = $4004
-; 矩形波CH2制御レジスタ2
+; 矩形波CH2制御レジスタ2(音の変化を設定)
 memMapSqWvCh2Ctl2 = $4005
-; 矩形波CH2周波数値レジスタ1
+; 矩形波CH2周波数値レジスタ1(周波数下位8ビット)
 memMapSqWvCh2Val1 = $4006
-; 矩形波CH2周波数値レジスタ2
+; 矩形波CH2周波数値レジスタ2(再生時間・周波数上位3ビット)
 memMapSqWvCh2Val2 = $4007
 ; 三角波制御レジスタ
 memMapTriWvCtl = $4008
