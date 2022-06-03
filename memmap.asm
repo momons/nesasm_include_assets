@@ -56,6 +56,45 @@ memMapPalletBg = $3f00
 ; スプライトパレットテーブルアドレス
 memMapPalletSp = $3f10
 
+; 矩形波CH1制御レジスタ1
+memMapSqWvCh1Ctl1 = $4000
+; 矩形波CH1制御レジスタ2
+memMapSqWvCh1Ctl2 = $4001
+; 矩形波CH1周波数値レジスタ1
+memMapSqWvCh1Val1 = $4002
+; 矩形波CH1周波数値レジスタ2
+memMapSqWvCh1Val2 = $4003
+; 矩形波CH2制御レジスタ1
+memMapSqWvCh2Ctl1 = $4004
+; 矩形波CH2制御レジスタ2
+memMapSqWvCh2Ctl2 = $4005
+; 矩形波CH2周波数値レジスタ1
+memMapSqWvCh2Val1 = $4006
+; 矩形波CH2周波数値レジスタ2
+memMapSqWvCh2Val2 = $4007
+; 三角波制御レジスタ
+memMapTriWvCtl = $4008
+; 三角波周波数値レジスタ1
+memMapTriWvVal1 = $400a
+; 三角波周波数値レジスタ2
+memMapTriWvVal2 = $400b
+; ノイズ制御レジスタ
+memMapNoiseCtl = $400c
+; ノイズ乱数レジスタ
+memMapNoiseRnd = $400e
+; ノイズ時間レジスタ
+memMapNoiseTime = $400f
+; DPCM制御レジスタ1
+memMapDpcmCtl1 = $4010
+; DPCM制御レジスタ2
+memMapDpcmCtl2 = $4011
+; DPCM制御レジスタ3
+memMapDpcmCtl3 = $4012
+; DPCM制御レジスタ4
+memMapDpcmCtl4 = $4013
+; 音声チャンネル制御レジスタ
+memMapAudioChCtl = $4015
+
 ; DMA転送
 memMapDma = $4014
 
