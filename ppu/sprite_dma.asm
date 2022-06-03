@@ -8,7 +8,7 @@ pageSpDmaData = 3 ; スプライトデータの格納先を$0300を使用する
 ; DMA転送領域を設定
 ; $0300領域を使用する
 setSpDmaMap .MACRO
-    .bank 0
+    .bank bankProgram
     .org pageSpDmaData * $100
 dmaSp0:
 dmaSp0Y:    .db 0

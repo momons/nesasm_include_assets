@@ -72,7 +72,7 @@ memMapSqWvCh2Ctl2 = $4005
 memMapSqWvCh2Val1 = $4006
 ; 矩形波CH2周波数値レジスタ2(再生時間・周波数上位3ビット)
 memMapSqWvCh2Val2 = $4007
-; 三角波制御レジスタ
+; 三角波制御レジスタ(音を鳴らす長さを設定)
 memMapTriWvCtl = $4008
 ; 三角波周波数値レジスタ1
 memMapTriWvVal1 = $400a
