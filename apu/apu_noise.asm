@@ -9,7 +9,7 @@
 ; @param 4 乱数タイプ(0:32kbit, 1:93kbit)
 ; @param 5 波長(0〜15)
 ; @param 6 再生時間(0〜31)
-setAudioNoise .MACRO
+setApuNoise .MACRO
     lda #(\1 << 5 | \2 << 4 | \3)
     sta memMapNoiseCtl
     lda #(\4 << 7 | \5)

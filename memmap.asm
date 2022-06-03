@@ -93,7 +93,7 @@ memMapDpcmCtl3 = $4012
 ; DPCM制御レジスタ4
 memMapDpcmCtl4 = $4013
 ; 音声チャンネル制御レジスタ
-memMapAudioChCtl = $4015
+memMapApuChCtl = $4015
 
 ; DMA転送
 memMapDma = $4014

@@ -7,7 +7,7 @@
 ; @param 2 長さ(0〜63)
 ; @param 3 周波数(高音:0〜2047:低音)
 ; @param 4 再生時間(0〜31)
-setAudioTriWv .MACRO
+setApuTriWv .MACRO
     lda #(\1 << 6 | \2)
     sta memMapTriWvCtl
     lda #(\3 % $100)

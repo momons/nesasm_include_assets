@@ -12,7 +12,7 @@
 ; @param 7 変化率(0〜7)
 ; @param 8 方向(0:尻下がり、1:尻上がり)
 ; @param 9 変化量(000:変化なし、短音〜長音)
-setAudioSqWvCtl .MACRO
+setApuSqWvCtl .MACRO
     lda #(\2 << 6 | \3 << 5 | \4 << 4 | \5)
     .IF \1 = 0
         sta memMapSqWvCh1Ctl1
@@ -31,7 +31,7 @@ setAudioSqWvCtl .MACRO
 ; @param 1 チャンネル(0:CH1、1:CH2)
 ; @param 2 周波数(高音:0〜2047:低音)
 ; @param 3 長さ無効をゼロにした際の再生時間(0〜31)
-setAudioSqWvVal .MACRO
+setApuSqWvVal .MACRO
     lda #(\2 % $100)
     .IF \1 = 0
         sta memMapSqWvCh1Val1
