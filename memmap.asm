@@ -78,7 +78,7 @@ memMapTriWvCtl = $4008
 memMapTriWvVal1 = $400a
 ; 三角波周波数値レジスタ2
 memMapTriWvVal2 = $400b
-; ノイズ制御レジスタ
+; ノイズ制御レジスタ(音の減衰を設定)
 memMapNoiseCtl = $400c
 ; ノイズ乱数レジスタ
 memMapNoiseRnd = $400e
