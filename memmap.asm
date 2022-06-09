@@ -11,28 +11,6 @@ bankInterrupt = 1
 ; VRAM領域
 bankVram = 2
 
-; パターンテーブル0 (ROMから読み込まれる)
-memMapPatternTable0 = $0000
-; パターンテーブル1 (ROMから読み込まれる)
-memMapPatternTable1 = $1000
-
-; 画面0のネームテーブル
-memMapBgNameTable0 = $2000
-; 画面0の属性テーブル
-memMapBgAttrTable0 = $23C0
-; 画面1のネームテーブル
-memMapBgNameTable1 = $2400
-; 画面1の属性テーブル
-memMapBgAttrTable1 = $27C0
-; 画面2のネームテーブル
-memMapBgNameTable2 = $2800
-; 画面2の属性テーブル
-memMapBgAttrTable2 = $2BC0
-; 画面3のネームテーブル
-memMapBgNameTable3 = $2C00
-; 画面3の属性テーブル
-memMapBgAttrTable3 = $2FC0
-
 ; PPUの基本設定
 memMapPpuBasicSet = $2000
 ; 画面表示の設定
@@ -50,11 +28,6 @@ memMapBgPosition = $2005
 memMapPpuAdd = $2006
 ; PPUからデータをアクセスする
 memMapPpuData = $2007
-
-; BGパレットテーブルアドレス
-memMapPalletBg = $3f00
-; スプライトパレットテーブルアドレス
-memMapPalletSp = $3f10
 
 ; 矩形波CH1制御レジスタ1(音の減衰を設定)
 memMapSqWvCh1Ctl1 = $4000
