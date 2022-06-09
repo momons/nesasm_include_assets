@@ -10,19 +10,19 @@ ppuAddPatternTable1 = $1000
 ; 画面0のネームテーブル
 ppuAddBgNameTable0 = $2000
 ; 画面0の属性テーブル
-ppuAddBgAttrTable0 = $23C0
+ppuAddBgAttrTable0 = $23c0
 ; 画面1のネームテーブル
 ppuAddBgNameTable1 = $2400
 ; 画面1の属性テーブル
-ppuAddBgAttrTable1 = $27C0
+ppuAddBgAttrTable1 = $27c0
 ; 画面2のネームテーブル
 ppuAddBgNameTable2 = $2800
 ; 画面2の属性テーブル
-ppuAddBgAttrTable2 = $2BC0
+ppuAddBgAttrTable2 = $2Bc0
 ; 画面3のネームテーブル
-ppuAddBgNameTable3 = $2C00
+ppuAddBgNameTable3 = $2c00
 ; 画面3の属性テーブル
-ppuAddBgAttrTable3 = $2FC0
+ppuAddBgAttrTable3 = $2fc0
 
 ; BGパレットテーブルアドレス
 ppuAddPalletBg = $3f00
