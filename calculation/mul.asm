@@ -1,7 +1,7 @@
 ; ------------------------
-; 8bit x 8bit = 8bitの掛け算
-; @param 1 左オペランド 8bit
-; @param 2 右オペランド 8bit
+; 符号なし8bit x 符号なし8bit = 符号なし8bitの掛け算
+; @param 1 左オペランド 符号なし8bit
+; @param 2 右オペランド 符号なし8bit
 ; @return 結果:memMapMul8Result
 ; ------------------------
 mul8 .MACRO
@@ -36,14 +36,12 @@ mul8 .MACRO
 .LEFT_SHIFT_CURRY_OFF\@:
     jmp .CALCULATION_LOOP\@
 .FINISH_MUL8\@:
-    lda memMapMul8Result
-    tax
     .ENDM
 
 ; ------------------------
-; 8bit x 8bit = 16bitの掛け算
-; @param 1 左オペランド 8bit
-; @param 2 右オペランド 8bit
+; 符号なし8bit x 符号なし8bit = 符号なし16bitの掛け算
+; @param 1 左オペランド 符号なし8bit
+; @param 2 右オペランド 符号なし8bit
 ; @return 結果上位8バイト:memMapMul16ResultUpper
 ;         結果下位8バイト:memMapMul16ResultLower
 ; ------------------------
