@@ -7,7 +7,7 @@
 mul8 .MACRO
     ; 結果領域を初期化
     lda #0
-    sta memMapMul8Result
+    sta <memMapMul8Result
     ; 作業用領域を初期化
     lda <memMapMul8LeftOpe
     sta <memMapMul8LeftTemp
@@ -19,20 +19,20 @@ mul8 .MACRO
 .CALCULATION_LOOP\@:
     ; 右オペランドを右シフト
     clc
-    lsr memMapMul8RightTemp
+    lsr <memMapMul8RightTemp
     bcc .RIGHT_SHIFT_CURRY_OFF\@
     ; キャリーフラグがONならば
     clc
     ; 上位バイト同士を加算
-    lda memMapMul8Temp
-    adc memMapMul8Result
-    sta memMapMul8Result
+    lda <memMapMul8Temp
+    adc <memMapMul8Result
+    sta <memMapMul8Result
 .RIGHT_SHIFT_CURRY_OFF\@:
     ; カウント減算
     dex
     beq .FINISH_MUL8\@
     ; 左シフト
-    asl memMapMul8Temp
+    asl <memMapMul8Temp
 .LEFT_SHIFT_CURRY_OFF\@:
     jmp .CALCULATION_LOOP\@
 .FINISH_MUL8\@:
