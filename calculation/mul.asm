@@ -39,6 +39,14 @@ mul8 .MACRO
     .ENDM
 
 ; ------------------------
+; サブルーチン版 8bit掛け算
+; ------------------------
+funcMul8 .MACRO
+    mul8
+    rts
+    .ENDM
+
+; ------------------------
 ; 符号なし8bit x 符号なし8bit = 符号なし16bitの掛け算
 ; @param memMapMul16LeftOpe 符号なし8bit
 ; @param memMapMul16RightOpe 符号なし8bit
@@ -92,4 +100,12 @@ mul16 .MACRO
 .LEFT_SHIFT_CURRY_OFF\@:
     jmp .CALCULATION_LOOP\@
 .FINISH_MUL16\@:
+    .ENDM
+
+; ------------------------
+; サブルーチン版 16bit掛け算
+; ------------------------
+funcMul16 .MACRO
+    mul16
+    rts
     .ENDM
