@@ -23,8 +23,8 @@ mul8 .MACRO
     bcc .RIGHT_SHIFT_CURRY_OFF\@
     ; キャリーフラグがONならば
     clc
-    ; 上位バイト同士を加算
-    lda <memMapMul8Temp
+    ; 結果に加算
+    lda <memMapMul8LeftTemp
     adc <memMapMul8Result
     sta <memMapMul8Result
 .RIGHT_SHIFT_CURRY_OFF\@:
@@ -32,8 +32,7 @@ mul8 .MACRO
     dex
     beq .FINISH_MUL8\@
     ; 左シフト
-    asl <memMapMul8Temp
-.LEFT_SHIFT_CURRY_OFF\@:
+    asl <memMapMul8LeftTemp
     jmp .CALCULATION_LOOP\@
 .FINISH_MUL8\@:
     .ENDM
@@ -41,7 +40,8 @@ mul8 .MACRO
 ; ------------------------
 ; サブルーチン版 8bit掛け算
 ; ------------------------
-funcMul8 .MACRO
+subMul8 .MACRO
+funcMul8:
     mul8
     rts
     .ENDM
@@ -105,7 +105,8 @@ mul16 .MACRO
 ; ------------------------
 ; サブルーチン版 16bit掛け算
 ; ------------------------
-funcMul16 .MACRO
+subMul16 .MACRO
+funcMul16:
     mul16
     rts
     .ENDM
