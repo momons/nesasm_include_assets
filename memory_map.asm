@@ -91,19 +91,19 @@ memMapInterrupt = $fffa
 
 ;==== 計算の作業領域(calculation)
 ; 16bit掛け算
-memMapMul16LeftOpe = $00
-memMapMul16RightOpe = $01
-memMapMul16ResultUpper = $02
-memMapMul16ResultLower = $03
-memMapMul16LeftTempUpper = $04
-memMapMul16LeftTempLower = $05
-memMapMul16RightTemp = $06
+memMapMul16LeftOpe = $01
+memMapMul16RightOpe = $02
+memMapMul16ResultUpper = $03
+memMapMul16ResultLower = $04
+memMapMul16LeftTempUpper = $05
+memMapMul16LeftTempLower = $06
+memMapMul16RightTemp = $07
 ; 8bit掛け算
-memMapMul8LeftOpe = $00
-memMapMul8RightOpe = $01
-memMapMul8Result = $02
-memMapMul8LeftTemp = $03
-memMapMul8RightTemp = $04
+memMapMul8LeftOpe = $01
+memMapMul8RightOpe = $02
+memMapMul8Result = $03
+memMapMul8LeftTemp = $04
+memMapMul8RightTemp = $05
 
 ; 16bit割り算
 memMapDiv16LeftOpe = $00
@@ -114,11 +114,11 @@ memMapDiv16LeftTempUpper = $04
 memMapDiv16LeftTempLower = $05
 memMapDiv16RightTemp = $06
 ; 8bit割り算
-memMapDiv8LeftOpe = $00
-memMapDiv8RightOpe = $01
-memMapDiv8Result = $02
-memMapDiv8Remainder = $03
-memMapDiv8LeftTemp = $04
-memMapDiv8RightTemp = $05
-memMapDiv8Temp = $06
+memMapDiv8LeftOpe = $01
+memMapDiv8RightOpe = $02
+memMapDiv8Result = $03
+memMapDiv8Remainder = $04
+memMapDiv8LeftTemp = $05
+memMapDiv8RightTemp = $06
+memMapDiv8Temp = $07
 
