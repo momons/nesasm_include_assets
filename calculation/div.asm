@@ -15,7 +15,6 @@ div8 .MACRO
     sta <memMapDiv8LeftTemp
     ; ゼロ除算はやめて
     lda <memMapDiv8RightOpe
-    cmp #0
     beq .FINISH_DIV8\@
 .CALCULATION_LOOP\@:
     ; 計算の初期化
@@ -26,14 +25,15 @@ div8 .MACRO
     ; left < rightになるまでループ
 .CMP_GREATER_EQUAL_LOOP\@:
     ; left < right
+    sec
     lda <memMapDiv8LeftTemp
     cmp <memMapDiv8RightTemp
-    bcc .CMP_GREATER_EQUAL_FINISH\@
+    bcc .CMP_LESSER_FINISH\@
     ; 左へビットシフト
     asl <memMapDiv8Temp
     asl <memMapDiv8RightTemp
     jmp .CMP_GREATER_EQUAL_LOOP\@
-.CMP_GREATER_EQUAL_FINISH\@:
+.CMP_LESSER_FINISH\@:
     ; 一回もループしてなかったら終了
     lda <memMapDiv8Temp
     cmp #1
