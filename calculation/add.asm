@@ -6,14 +6,16 @@
 ; ------------------------
 unsAdd16 .MACRO
     ; 初期化
-    ldx #0
     lda #0
     sta <memMapAdd16ResultUpper
     sta <memMapAdd16ResultLower
     ; ループの初期化
+    ldx #0
 .CALCULATION_LOOP\@:
     lda #1
     sta <memMapAdd16Temp1
+    lda #$fe
+    sta <memMapAdd16Temp4
 .BIT_SHIFT_LOOP\@:
     ; memMapAdd16Temp2 = left & memMapAdd16Temp1
     lda <memMapAdd16LeftOpeLower, X
@@ -25,9 +27,15 @@ unsAdd16 .MACRO
     sta <memMapAdd16Temp3
     ; A = memMapAdd16Temp2 & memMapAdd16Temp3
     and <memMapAdd16Temp2
+    ; if A == 0 then goto BIT_AND_ZERO
     beq .BIT_AND_ZERO\@
 .ADD_CARRY_BIT\@:
     ; どちらも1なので桁上がり
+    ; 現在のBitをゼロに消去 memMapAdd16Result &= memMapAdd16Temp4
+    ; TODD: ここにバグがある
+    lda <memMapAdd16ResultLower, X
+    eor <memMapAdd16Temp4
+    sta <memMapAdd16ResultLower, X
     ; A = memMapAdd16Temp1 << 1
     lda <memMapAdd16Temp1
     asl A
@@ -62,16 +70,18 @@ unsAdd16 .MACRO
     lda #1
     sta <memMapAdd16ResultUpper
 .TEMP1_BIT_SHIFT\@:
+    ; temp4 <<= 1
+    rol <memMapAdd16Temp4
     ; temp1 <<= 1
-    lda <memMapAdd16Temp1
+    asl <memMapAdd16Temp1
     ; キャリーフラグが立ってないので次のビットへ
     bcc .BIT_SHIFT_LOOP\@
     ; X++
     inx
-    ; 2ならば終了する
+    ; 2ならば終了する if X >= 2 then goto .UNS_ADD16_FINISH
     txa
     cmp 2
-    beq .UNS_ADD16_FINISH\@
+    bcs .UNS_ADD16_FINISH\@
     jmp .CALCULATION_LOOP\@
 .UNS_ADD16_FINISH\@:
     .ENDM
