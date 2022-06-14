@@ -1,8 +1,11 @@
 ; ------------------------
 ; 符号なし16bit + 符号なし16bit = 符号なし16bitの足し算
-; @param memMapAdd16LeftOpe 符号なし16bit
-; @param memMapAdd16RightOpe 符号なし16bit
-; @return 結果:memMapAdd16ResultUpper, memMapAdd16ResultLower
+; @param memMapAdd16LeftOpeUpper 左オペランド 符号なし上位8bit
+; @param memMapAdd16LeftOpeLower 左オペランド 符号なし下位8bit
+; @param memMapAdd16RightOpeUpper 右オペランド 符号なし上位8bit
+; @param memMapAdd16RightOpeLower 右オペランド 符号なし下位8bit
+; @return 結果上位8bit:memMapAdd16ResultUpper
+;         結果下位8bit:memMapAdd16ResultLower
 ; ------------------------
 unsAdd16 .MACRO
     ; 初期化
