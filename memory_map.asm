@@ -100,7 +100,6 @@ memMapAdd16ResultUpper = $06
 memMapAdd16Temp1 = $07
 memMapAdd16Temp2 = $08
 memMapAdd16Temp3 = $09
-memMapAdd16Temp4 = $10
 
 ; 16bit掛け算
 memMapMul16LeftOpe = $01
