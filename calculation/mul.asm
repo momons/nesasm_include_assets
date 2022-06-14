@@ -4,7 +4,7 @@
 ; @param memMapMul8RightOpe 符号なし8bit
 ; @return 結果:memMapMul8Result
 ; ------------------------
-mul8 .MACRO
+unsMul8 .MACRO
     ; 結果領域を初期化
     lda #0
     sta <memMapMul8Result
@@ -40,9 +40,9 @@ mul8 .MACRO
 ; ------------------------
 ; サブルーチン版 8bit掛け算
 ; ------------------------
-subMul8 .MACRO
-funcMul8:
-    mul8
+subUnsMul8 .MACRO
+funcUnsMul8:
+    unsMul8
     rts
     .ENDM
 
@@ -50,10 +50,10 @@ funcMul8:
 ; 符号なし8bit x 符号なし8bit = 符号なし16bitの掛け算
 ; @param memMapMul16LeftOpe 符号なし8bit
 ; @param memMapMul16RightOpe 符号なし8bit
-; @return 結果上位8バイト:memMapMul16ResultUpper
-;         結果下位8バイト:memMapMul16ResultLower
+; @return 結果上位8bit:memMapMul16ResultUpper
+;         結果下位8bit:memMapMul16ResultLower
 ; ------------------------
-mul16 .MACRO
+unsMul16 .MACRO
     ; 結果領域を初期化
     lda #0
     sta <memMapMul16ResultUpper
@@ -105,8 +105,8 @@ mul16 .MACRO
 ; ------------------------
 ; サブルーチン版 16bit掛け算
 ; ------------------------
-subMul16 .MACRO
-funcMul16:
-    mul16
+subUnsMul16 .MACRO
+funcUnsMul16:
+    unsMul16
     rts
     .ENDM
