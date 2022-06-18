@@ -88,22 +88,3 @@ memMapProgramRomHigh = $c000
 
 ; 割り込みプログラム領域 (ROMから読み込まれる)
 memMapInterrupt = $fffa
-
-;==== 計算の作業領域(calculation)
-; 16bit割り算
-memMapDiv16LeftOpe = $00
-memMapDiv16RightOpe = $01
-memMapDiv16ResultUpper = $02
-memMapDiv16ResultLower = $03
-memMapDiv16LeftTempUpper = $04
-memMapDiv16LeftTempLower = $05
-memMapDiv16RightTemp = $06
-; 8bit割り算
-memMapDiv8LeftOpe = $01
-memMapDiv8RightOpe = $02
-memMapDiv8Result = $03
-memMapDiv8Remainder = $04
-memMapDiv8LeftTemp = $05
-memMapDiv8RightTemp = $06
-memMapDiv8Temp = $07
-
