@@ -90,23 +90,6 @@ memMapProgramRomHigh = $c000
 memMapInterrupt = $fffa
 
 ;==== 計算の作業領域(calculation)
-; 16bit符号なし足し算
-unsAdd16LeftOpeLow = $01
-unsAdd16LeftOpeUp = $02
-unsAdd16RightOpeLow = $03
-unsAdd16RightOpeUp = $04
-unsAdd16ResultLow = $05
-unsAdd16ResultUp = $06
-unsAdd16Temp1 = $07
-unsAdd16Temp2 = $08
-unsAdd16Temp3 = $09
-; 8bit符号なし足し算
-unsAdd8LeftOpe = $01
-unsAdd8RightOpe = $02
-unsAdd8ResultLow = $03
-unsAdd8ResultUp = $04
-unsAdd8Temp1 = $05
-unsAdd8Temp2 = $06
 
 ; 16bit符号なし掛け算
 memMapMul16LeftOpe = $01

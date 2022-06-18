@@ -5,6 +5,12 @@
 ; @return 結果上位8bit: unsAdd8ResultUp
 ;         結果下位8bit: unsAdd8ResultLow
 ; ==============================================
+unsAdd8LeftOpe = $01
+unsAdd8RightOpe = $02
+unsAdd8ResultLow = $03
+unsAdd8ResultUp = $04
+unsAdd8Temp1 = $05
+unsAdd8Temp2 = $06
 unsAdd8 .MACRO
     ; 初期化
     lda #0
@@ -30,7 +36,7 @@ unsAdd8 .MACRO
     lda <unsAdd8LeftOpe
     and #%10000000
     ; unsAdd8Temp1 = A <<< 1
-    rol Ac
+    rol A
     sta <unsAdd8Temp1
     ; A = unsAdd8RightOpe & $80
     lda <unsAdd8RightOpe
@@ -85,6 +91,15 @@ funcUnsAdd8:
 ; @return 結果上位8bit:unsAdd16ResultUp
 ;         結果下位8bit:unsAdd16ResultLow
 ; ==============================================
+unsAdd16LeftOpeLow = $01
+unsAdd16LeftOpeUp = $02
+unsAdd16RightOpeLow = $03
+unsAdd16RightOpeUp = $04
+unsAdd16ResultLow = $05
+unsAdd16ResultUp = $06
+unsAdd16Temp1 = $07
+unsAdd16Temp2 = $08
+unsAdd16Temp3 = $09
 unsAdd16 .MACRO
     ; 初期化
     lda #0
