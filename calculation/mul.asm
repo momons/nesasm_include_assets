@@ -1,38 +1,43 @@
 ; ------------------------
 ; 符号なし8bit x 符号なし8bit = 符号なし8bitの掛け算
-; @param memMapMul8LeftOpe 符号なし8bit
-; @param memMapMul8RightOpe 符号なし8bit
-; @return 結果:memMapMul8Result
+; @param unsMul8LeftOpe 符号なし8bit
+; @param unsMul8RightOpe 符号なし8bit
+; @return 結果:unsMul8Result
 ; ------------------------
+unsMul8LeftOpe = $01
+unsMul8RightOpe = $02
+unsMul8Result = $03
+unsMul8LeftTemp = $04
+unsMul8RightTemp = $05
 unsMul8 .MACRO
     ; 結果領域を初期化
     lda #0
-    sta <memMapMul8Result
+    sta <unsMul8Result
     ; 作業用領域を初期化
-    lda <memMapMul8LeftOpe
-    sta <memMapMul8LeftTemp
+    lda <unsMul8LeftOpe
+    sta <unsMul8LeftTemp
     ; 右オペランド領域にセット
-    lda <memMapMul8RightOpe
-    sta <memMapMul8RightTemp
+    lda <unsMul8RightOpe
+    sta <unsMul8RightTemp
     ; 8bit分ループする
     ldx #8
 .CALCULATION_LOOP\@:
     ; 右オペランドを右シフト
     clc
-    lsr <memMapMul8RightTemp
+    lsr <unsMul8RightTemp
     bcc .RIGHT_SHIFT_CURRY_OFF\@
     ; キャリーフラグがONならば
     clc
     ; 結果に加算
-    lda <memMapMul8LeftTemp
-    adc <memMapMul8Result
-    sta <memMapMul8Result
+    lda <unsMul8LeftTemp
+    adc <unsMul8Result
+    sta <unsMul8Result
 .RIGHT_SHIFT_CURRY_OFF\@:
     ; カウント減算
     dex
     beq .FINISH_MUL8\@
     ; 左シフト
-    asl <memMapMul8LeftTemp
+    asl <unsMul8LeftTemp
     jmp .CALCULATION_LOOP\@
 .FINISH_MUL8\@:
     .ENDM
@@ -48,55 +53,62 @@ funcUnsMul8:
 
 ; ------------------------
 ; 符号なし8bit x 符号なし8bit = 符号なし16bitの掛け算
-; @param memMapMul16LeftOpe 符号なし8bit
-; @param memMapMul16RightOpe 符号なし8bit
-; @return 結果上位8bit:memMapMul16ResultUpper
-;         結果下位8bit:memMapMul16ResultLower
+; @param unsMul16LeftOpe 符号なし8bit
+; @param unsMul16RightOpe 符号なし8bit
+; @return 結果上位8bit:unsMul16ResultUpper
+;         結果下位8bit:unsMul16ResultLower
 ; ------------------------
+unsMul16LeftOpe = $01
+unsMul16RightOpe = $02
+unsMul16ResultUp = $03
+unsMul16ResultLow = $04
+unsMul16LeftTempUp = $05
+unsMul16LeftTempLow = $06
+unsMul16RightTemp = $07
 unsMul16 .MACRO
     ; 結果領域を初期化
     lda #0
-    sta <memMapMul16ResultUpper
-    sta <memMapMul16ResultLower
+    sta <unsMul16ResultUp
+    sta <unsMul16ResultLow
     ; 作業用領域を初期化
-    sta <memMapMul16LeftTempUpper
-    lda <memMapMul16LeftOpe
-    sta <memMapMul16LeftTempLower
+    sta <unsMul16LeftTempUp
+    lda <unsMul16LeftOpe
+    sta <unsMul16LeftTempLow
     ; 右オペランド領域にセット
-    lda <memMapMul16RightOpe
-    sta <memMapMul16RightTemp
+    lda <unsMul16RightOpe
+    sta <unsMul16RightTemp
     ; 8bit分ループする
     ldx #8
 .CALCULATION_LOOP\@:
     ; 右オペランドを右シフト
     clc
-    lsr <memMapMul16RightTemp
+    lsr <unsMul16RightTemp
     bcc .RIGHT_SHIFT_CURRY_OFF\@
     ; キャリーフラグがONならば
     clc
     ; 上位バイト同士を加算
-    lda <memMapMul16LeftTempUpper
-    adc <memMapMul16ResultUpper
-    sta <memMapMul16ResultUpper
+    lda <unsMul16LeftTempUp
+    adc <unsMul16ResultUp
+    sta <unsMul16ResultUp
     ; 下位バイト同士を加算
     clv
-    lda <memMapMul16LeftTempLower
-    adc <memMapMul16ResultLower
-    sta <memMapMul16ResultLower
+    lda <unsMul16LeftTempLow
+    adc <unsMul16ResultLow
+    sta <unsMul16ResultLow
     bvc .RIGHT_SHIFT_CURRY_OFF\@
     ; オーバーフローフラグがONならば、上位バイトに1加算する
-    inc <memMapMul16ResultUpper
+    inc <unsMul16ResultUp
 .RIGHT_SHIFT_CURRY_OFF\@:
     ; カウント減算
     dex
     beq .FINISH_MUL16\@
     ; 左シフト
-    asl <memMapMul16LeftTempUpper
+    asl <unsMul16LeftTempUp
     clc
-    asl <memMapMul16LeftTempLower
+    asl <unsMul16LeftTempLow
     bcc .LEFT_SHIFT_CURRY_OFF\@
     ; アッパーバイトをインクリメント
-    inc <memMapMul16LeftTempUpper
+    inc <unsMul16LeftTempUp
 .LEFT_SHIFT_CURRY_OFF\@:
     jmp .CALCULATION_LOOP\@
 .FINISH_MUL16\@:
