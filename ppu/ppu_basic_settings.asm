@@ -1,6 +1,6 @@
-; ------------------------
+; ==============================================
 ; PPUの基本設定 を行う書き込み（出力）専用のI/Oポート
-; ------------------------
+; ==============================================
 
 ; vBlank発生を割り込みで検出 (0: off, 1: on)
 ppuBasicSetVbankOff = %00000000
@@ -32,6 +32,7 @@ ppuBasicSetMainScreen1 = %00000001
 ppuBasicSetMainScreen2 = %00000010
 ppuBasicSetMainScreen3 = %00000011
 
+; ==============================================
 ; PPUの基本設定
 ; @param 1 vBlank発生を割り込みで検出
 ; @param 2 PPU type
@@ -40,6 +41,7 @@ ppuBasicSetMainScreen3 = %00000011
 ; @param 5 スプライトのキャラクタテーブル番号
 ; @param 6 VRAM入出力時のアドレス変化値
 ; @param 7 メインスクリーン
+; ==============================================
 ppuBasicSet .MACRO
     lda #(\1 | \2 | \3 | \4 | \5 | \6 | \7)
     sta memMapPpuBasicSet

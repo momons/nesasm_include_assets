@@ -1,6 +1,6 @@
-; ------------------------
+; ==============================================
 ; 音声チャンネル制御
-; ------------------------
+; ==============================================
 
 ; 矩形波CH1
 apuSqCh1Off = %00000000
@@ -18,19 +18,23 @@ apuNoiseOn = %00001000
 apuDpcmOff = %00000000
 apuDpcmOn = %00010000
 
+; ==============================================
 ; 音声チャンネル制御を一度に行う
 ; @param 1 矩形波CH1 ON/OFF (apuSqCh1Off or apuSqCh1On)
 ; @param 2 矩形波CH2 ON/OFF (apuSqCh2Off or apuSqCh2On)
 ; @param 3 三角波 ON/OFF (apuTriOff or apuTriOn)
 ; @param 4 ノイズ ON/OFF (apuNoiseOff or apuNoiseOn)
 ; @param 5 DPCM ON/OFF (apuDpcmOff or apuDpcmOn)
+; ==============================================
 setApuChAll .MACRO
     lda #(\1 | \2 | \3 | \4 | \5)
     sta memMapApuChCtl
     .ENDM
 
+; ==============================================
 ; 音声チャンネル制御を個別に行う
 ; @param 1 ON/OFF
+; ==============================================
 setApuCh .MACRO
     lda memMapApuChCtl
     .IF \1 != $00

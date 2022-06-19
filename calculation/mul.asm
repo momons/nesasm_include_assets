@@ -1,9 +1,9 @@
-; ------------------------
+; ==============================================
 ; 符号なし8bit x 符号なし8bit = 符号なし8bitの掛け算
 ; @param unsMul8LeftOpe 符号なし8bit
 ; @param unsMul8RightOpe 符号なし8bit
 ; @return 結果:unsMul8Result
-; ------------------------
+; ==============================================
 unsMul8LeftOpe = $01
 unsMul8RightOpe = $02
 unsMul8Result = $03
@@ -42,22 +42,22 @@ unsMul8 .MACRO
 .FINISH_MUL8\@:
     .ENDM
 
-; ------------------------
+; ==============================================
 ; サブルーチン版 8bit掛け算
-; ------------------------
+; ==============================================
 subUnsMul8 .MACRO
 funcUnsMul8:
     unsMul8
     rts
     .ENDM
 
-; ------------------------
+; ==============================================
 ; 符号なし8bit x 符号なし8bit = 符号なし16bitの掛け算
 ; @param unsMul16LeftOpe 符号なし8bit
 ; @param unsMul16RightOpe 符号なし8bit
 ; @return 結果上位8bit:unsMul16ResultUpper
 ;         結果下位8bit:unsMul16ResultLower
-; ------------------------
+; ==============================================
 unsMul16LeftOpe = $01
 unsMul16RightOpe = $02
 unsMul16ResultUp = $03
@@ -114,9 +114,9 @@ unsMul16 .MACRO
 .FINISH_MUL16\@:
     .ENDM
 
-; ------------------------
+; ==============================================
 ; サブルーチン版 16bit掛け算
-; ------------------------
+; ==============================================
 subUnsMul16 .MACRO
 funcUnsMul16:
     unsMul16
